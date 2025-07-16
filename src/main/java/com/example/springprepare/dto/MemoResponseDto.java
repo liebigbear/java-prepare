@@ -1,8 +1,10 @@
 package com.example.springprepare.dto;
 
 import com.example.springprepare.entity.Memo;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
 public class MemoResponseDto {
     private Long id;
