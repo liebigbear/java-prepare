@@ -62,4 +62,9 @@ public class MemoService {
 
         return id;
     }
+
+    public List<MemoResponseDto> getMemosContents(String keyword) {
+        return memoRepository.findAllByContentsContains(keyword).stream()
+                .map(MemoResponseDto::new).toList();
+    }
 }

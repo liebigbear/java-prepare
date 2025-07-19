@@ -37,6 +37,11 @@ public class MemoController {
 
     }
 
+    @GetMapping("/memos/contents")
+    public List<MemoResponseDto> getMemosContents(String keyword) {
+        return memoService.getMemosContents(keyword);
+    }
+
     @PutMapping("/memos/{id}")
     public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
         return memoService.updateMemo(id, requestDto);
