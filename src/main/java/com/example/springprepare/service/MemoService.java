@@ -4,6 +4,7 @@ import com.example.springprepare.dto.MemoRequestDto;
 import com.example.springprepare.dto.MemoResponseDto;
 import com.example.springprepare.entity.Memo;
 import com.example.springprepare.repository.MemoRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -44,6 +45,7 @@ public class MemoService {
                 .map(MemoResponseDto::new).toList();
     }
 
+    @Transactional
     public Long updateMemo(Long id, MemoRequestDto requestDto) {
         Memo memo = memoRepository.findById(id).orElseThrow(() -> new RuntimeException("Memo not found"));
 
