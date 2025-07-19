@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "memo")
 @NoArgsConstructor
-public class Memo {
+public class Memo extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +20,7 @@ public class Memo {
     private String username;
     @Column(name = "contents", nullable = false)
     private String contents;
+
 
     public Memo(MemoRequestDto memoRequestDto) {
         this.username = memoRequestDto.getUsername();
